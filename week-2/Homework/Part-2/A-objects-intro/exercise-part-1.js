@@ -17,3 +17,26 @@ var car = {
 
 */
 
+const desk = {
+    width_cm: 80,
+    length_cm:120,
+    height_cm:80,
+    color: 'Brown',
+    drawer: 3,
+}
+
+const sweater = {
+    size: 'XL',
+    color: 'Gray',
+    brand: 'Xiomy',
+    fabric: 'Cotton',
+    pocket: false
+}
+
+const cellPhone = {
+    brand: 'Xiaomi',
+    model: 'Poco F3',
+    color: 'Blue',
+    size_pulg: 6.67,
+    screen: 'AMOLED'
+}
