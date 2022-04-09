@@ -40,11 +40,39 @@ WRITE YOUR CODE BELOW
 */
 
 
-let destinationNamesWithin500Kms = // Complete here
+arrayDestine=[]
+let destine = travelDestinations.filter(destination => destination.distanceKms<500).forEach(function (obj,index){
+    arrayDestine[index]=obj.destinationName
+    destinationNamesWithin500Kms= arrayDestine.toString()
+})// Complete here
 
-let destinationNameReachableByFerry = // Complete here
+let cities=[]
+let destineWithFerry=travelDestinations.forEach(function(array,index){
+    const b = array.transportations.find(function (movil){
+        return movil === 'ferry'
+    })
+    if (b=='ferry'){
+        const c=travelDestinations[index].destinationName
+        cities.push(c)
+    } 
+})
+let destinationNameReachableByFerry = cities.toString()// Complete here
 
-let destinationNamesMoreThan300KmsAwayByTrain = // Complete here (PRINT THE RESULT IN THE CONSOLE USING FOREACH)
+// destination1.transportations.find('ferry'===true).destinationName// Complete here
+let citiesMore300KmsFarAwayWithTrain=[]
+let destinieFarAway=travelDestinations.forEach(function(array,index){
+    
+    const b = array.transportations.find(function (movil){
+        return movil === 'train'
+    })
+    const c = array.distanceKms
+    console.log(c);
+    if (b=='train' && c > 300){
+        const d=travelDestinations[index].destinationName
+        citiesMore300KmsFarAwayWithTrain.push(d)
+    } 
+})
+let destinationNamesMoreThan300KmsAwayByTrain = citiesMore300KmsFarAwayWithTrain.toString()// Complete here (PRINT THE RESULT IN THE CONSOLE USING FOREACH)
 
 
 /*

@@ -7,6 +7,15 @@ const studentGrades = {
     george: 17,
     abdul: 19,
   };
+
+  const studentsWithMore18 = (obj =>{
+    Object.values(obj).forEach(function (note, index){
+      if (note > 18){
+        console.log(Object.keys(obj)[index].toUpperCase() + ' - ' + Object.values(obj)[index]);
+      }
+    })
+  })
+  studentsWithMore18 (studentGrades)
   
   // Prints
   // TOM - 20
