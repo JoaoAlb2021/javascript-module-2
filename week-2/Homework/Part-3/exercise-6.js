@@ -100,4 +100,96 @@ var mentors = [
 ];
 
 //YOUR CODE HERE
+////////////////////Part-1///////////////////////
+let jobBarcelonaAndSkillReact = (listMentors) => {
+  listMentors.forEach((obj)=>{
+    let reactSkill = obj.skills.find((skill) => {
+      return skill === 'React'
+    })
+    if (reactSkill === 'React' && obj.job.city === 'Barcelona'){
+      console.log('Hi, my name is ' + obj.firstName + ' ' + obj.lastName + '. I work in Barcelona and i know React.');
+    }
+  })
+}
+jobBarcelonaAndSkillReact(mentors)
+/////////////////ENd Part-1/////////////////////
 
+//////////////////Part-2////////////////////////
+let jobJustBarcelona = (listMentors) => {
+  listMentors.forEach((obj) => {
+    if (obj.job.city === 'Barcelona') {
+      obj.class = "Jun1"
+      obj.skills.push('SQL')
+    }
+  })
+}
+jobJustBarcelona(mentors)
+// console.log(mentors);
+/////////////////ENd Part-2/////////////////////
+
+//////////////////Part-3////////////////////////
+mentors.forEach((obj)=>{
+  obj.addskill = (newSkill) => {
+    obj.skills.push(newSkill)
+  }
+})
+console.log(mentors)
+/////////////////ENd Part-3/////////////////////
+
+//////////////////Part-4////////////////////////
+const addNewSkill = (newSkill) =>{
+  mentors.forEach((obj)=>{
+    obj.skills.push(newSkill)
+  })
+}
+addNewSkill('Python')
+console.log(mentors);
+/////////////////ENd Part-4/////////////////////
+
+//////////////////Part-5////////////////////////
+const removeLastSkill = () =>{
+  mentors.forEach((obj)=>{
+    obj.skills.pop()
+  })
+}
+removeLastSkill()
+console.log(mentors[0]);
+/////////////////ENd Part-5/////////////////////
+
+//////////////////Part-6////////////////////////
+let mentorWithMoreSkills = () =>{
+  a=[]
+  maxSkills = 0
+  mentors.forEach((obj,index)=>{
+    numberOfSkills = obj.skills.length
+    console.log('The mentor ' + obj.firstName + ' ' + obj.lastName + ' have ' + numberOfSkills + ' skills');
+    if (numberOfSkills >= maxSkills){
+      maxSkills = numberOfSkills
+      a.push(obj.firstName + ' ' + obj.lastName)
+    }
+  })
+  return a.toString() + ' have higher number of skills: ' + maxSkills
+}
+console.log(mentorWithMoreSkills());
+/////////////////ENd Part-6/////////////////////
+
+/////////////////Part-7/////////////////////////
+mentors.forEach((obj) => {
+  obj.addStudentLikes = () => {
+    obj.studentLikes = +1
+  }
+})
+mentors[1].addStudentLikes()
+console.log(mentors[1]);
+
+/////////////////ENd Part-7/////////////////////
+
+/////////////////Part-8/////////////////////////
+const addStudent = (numberOfStudents) =>{
+  mentors.forEach((obj)=>{
+    obj.studentLikes = obj.studentLikes + numberOfStudents
+  })
+}
+addStudent(2)
+console.log(mentors);
+/////////////////ENd Part-8/////////////////////

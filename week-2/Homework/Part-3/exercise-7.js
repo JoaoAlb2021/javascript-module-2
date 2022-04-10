@@ -19,7 +19,7 @@ id is a unique number that identifies each product
 3. Create a function addToShoppingCart to add a product to the shopping cart list giving the product id,
 the function will add the product to the selectedProduct list, and add the price to the totalPrice
 
-4. Create the function removeFrom ShoppingCart to remove a product that a client does not like anymore
+4. Create the function removeFromShoppingCart to remove a product that a client does not like anymore
 
 5. Create the function shop, the function will empty the list and set 0 in the totalPrice of the shopping cart
 In addition will substract 1 in the product stock of bought products
@@ -32,18 +32,32 @@ var products = [];
 var product1 = {
   id: 1,
   name: "Toaster X56 Plus",
-  price: 12.98,
+  price: 12.90,
   stock: 105
 };
 var product2 = {
   id: 2,
   name: "Watch Rocker",
-  price: 9.99,
+  price: 9.90,
   stock: 2
+};
+var product3 = {
+  id: 3,
+  name: "Smarth Watch",
+  price: 19.90,
+  stock: 50
+};
+var product4 = {
+  id: 4,
+  name: "Asus TUF Gaming",
+  price: 199.90,
+  stock: 3
 };
 
 products.push(product1);
 products.push(product2);
+products.push(product3);
+products.push(product4);
 
 var shoppingCart = {
   totalPrice: 0,
@@ -51,23 +65,43 @@ var shoppingCart = {
 };
 
 function addToShoppingCart(id){
+  products.forEach((obj)=>{
+    if (obj.stock ===0){
+      console.log('Prodcut without stock. Please select another product')
+    }
+    else if (obj.id === id){
+      shoppingCart.selectedProducts.push(obj)
+      shoppingCart.totalPrice = shoppingCart.totalPrice + obj.price
+      obj.stock = obj.stock - 1
+    }
+  })
 
 }
 
 function removeFromShoppingCart(id){
-
+  products.forEach((obj)=>{
+    if (obj.id === id){
+      shoppingCart.selectedProducts.splice(id-1,1)
+      shoppingCart.totalPrice = shoppingCart.totalPrice - obj.price
+      obj.stock = obj.stock + 1
+    }
+  })
 }
 
 function shop(){
-
+  shoppingCart = {
+    totalPrice: 0,
+    selectedProducts: []
+  };
 }
+
 
 //results
 addToShoppingCart(1);
 console.log("Step 1");
 console.log("Total Price = " + shoppingCart.totalPrice);
 console.log("Number of Elements = " + shoppingCart.selectedProducts.length);
-console.log("Name of Elements = " + shoppingCart.selectedProducts.map(p=>p.name));
+console.log("Name of Elements = " + shoppingCart.selectedProducts.map(p=>p.name)); 
 addToShoppingCart(2);
 console.log("Step 2");
 console.log("Total Price = " + shoppingCart.totalPrice);
@@ -88,3 +122,6 @@ console.log("Step 5");
 console.log("Total Price = " + shoppingCart.totalPrice);
 console.log("Number of Elements = " + shoppingCart.selectedProducts.length);
 console.log("Name of Elements = " + shoppingCart.selectedProducts.map(p=>p.name));
+
+console.log('Last stock:');
+console.log(products);

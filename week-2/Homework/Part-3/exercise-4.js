@@ -59,13 +59,40 @@ let restaurant1 = {
     applicationVersion: "1.0",
     restaurants: restaurants,
     findAvailableRestaurants: function (numberOfPeople) {
-      // Complete here
+    // Complete here
+      let restaurantWithFreeSeats=[]
+      restaurants.forEach((obj)=>{
+        let freeSeats = obj.totalSeats - obj.numberOfCustomers
+        if (freeSeats > numberOfPeople){
+          restaurantWithFreeSeats.push(obj.name)
+        }
+      return restaurantWithFreeSeats.toString()
+      })
     },
+
     findRestaurantServingDish: function (dishName) {
-      // Complete here
+    // Complete here
+    restaurantWithDish = []
+      restaurants.forEach((obj)=>{
+        let haveDish = obj.menu.find(function (dish){
+          return dishName === dish
+        })
+        if (haveDish===dishName){
+          restaurantWithDish.push(obj.name)
+        }
+      })
+    return restaurantWithDish.toString()
     },
+
     countNumberOfRestaurantsInArea: function (area) {
       // Complete here
+      restaurantsInArea=0
+      restaurants.forEach((obj)=>{
+        if (obj.address.area === area){
+          restaurantsInArea++
+        }
+      })
+      return restaurantsInArea
     },
   };
   
