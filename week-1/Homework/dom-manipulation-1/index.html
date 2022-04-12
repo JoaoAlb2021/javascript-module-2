@@ -64,10 +64,10 @@
 							<a id="largerLinksBtn" class="btn btn-secondary btn-lrg" href="#">Larger links!</a>
 						</div>
 					</div>
-					<div style="display: flex">
+					<form id="addNewText" style="display: flex">
 						<input class="form-control addArticle" type="textbox">
 						<button id="addArticleBtn" type="button" class="btn btn-primary">Add</button>
-					</div>		
+					</form>		
 					<h2 class="heading-underline">Learn more</h2>
 					<div id="mainArticles" class="articles">
 						<article class="article">
@@ -121,12 +121,12 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			document.querySelectorAll('a').forEach(a => a.style.fontSize = "1em");
+		</script>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 		<script src="./exercise.js"></script>
-		<script>
-			document.querySelectorAll('a').forEach(a => a.style.fontSize = "1em");
-		</script>
 	</body>
 </html>
