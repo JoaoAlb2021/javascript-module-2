@@ -10,7 +10,9 @@ Create a function called "showMovies" that
 
 Task 2
 Amend your function above to only show movies after 1 second. Remember to use setTimeout to achieve that
-Create a new function called "addMovie"
+reate a new function called "addMovie = (obj) =>{
+  titl
+}"
 - it receives a movie object as an argument - your can create a new object for your favorite movie following using the "myMovies" objects as a guide 
 - it adds the new movie to the list of movies after 2 seconds. Remember to setTimeout to achieve that
 Call addMovies to add the new movie to the list and then showMovies to see the movies added on the screen.
@@ -59,9 +61,101 @@ var movies = [
 ];
 
 // create showMovies function
-
+const showMovies = (array)=>{
+  let totalMovies = 0
+  setTimeout(() => {
+    array.forEach((obj)=> {
+      const titleMovie = obj.title
+      const directorMovie = obj.director
+      
+      const paragraphMovie = document.createElement('p')
+      const allMovies = document.querySelector('#all-movies')
+      
+      paragraphMovie.textContent = titleMovie + ' - ' + directorMovie
+      allMovies.appendChild(paragraphMovie)
+      totalMovies++
+    })
+    const numberOfMovies = document.querySelector('#movies-number')
+    numberOfMovies.textContent = totalMovies
+    return totalMovies
+  }, 2000);
+  a=document.querySelector('#movies-number')
+  console.log(a);
+}
 
 // create a new movie object for your favorite movie
 
+const myMovies = [
+  {
+    title: "InterStelar",
+    director: "Christoper Nolan",
+    type: "sci-fi",
+    haveWatched: true,
+  },
+  {
+    title: "Star Wars",
+    director: "George Lucas",
+    type: "sci-fi",
+    haveWatched: false,
+  }
+
+]
 
 // create addMovies function
+const addMovie = (obj) =>{
+  setTimeout(() => {
+    const titleMovie = obj.title
+    const directorMovie = obj.director
+    
+    const paragraphMovie = document.createElement('p')
+    const allMovies = document.querySelector('#all-movies')
+    
+    paragraphMovie.textContent = titleMovie + ' - ' + directorMovie
+    allMovies.appendChild(paragraphMovie)
+  }, 2000);
+}
+
+
+const newForm = document.createElement('form')
+newForm.classList.add('new-movie-to-add')
+const jumbotron = document.querySelector('.jumbotron')
+jumbotron.appendChild(newForm)
+
+const nameMovie = document.createElement('input')
+nameMovie.placeholder = 'Enter Name Of Movie'
+nameMovie.style.display = 'flex'
+newForm.appendChild(nameMovie)
+
+const nameDirector = document.createElement('input')
+nameDirector.placeholder = 'Enter Director'
+nameDirector.style.display = 'flex'
+newForm.appendChild(nameDirector)
+
+const typeMovie = document.createElement('input')
+typeMovie.placeholder = 'Enter Type Of Movie'
+typeMovie.style.display = 'flex'
+newForm.appendChild(typeMovie)
+
+nameMovie.style.margin = '10px'
+nameDirector.style.margin = '10px'
+typeMovie.style.margin = '10px'
+
+const buttonSubmit = document.createElement('button')
+newForm.appendChild(buttonSubmit)
+buttonSubmit.style.display = 'inline-block'
+buttonSubmit.style.backgroundColor = 'blue'
+buttonSubmit.style.color = 'white'
+buttonSubmit.style.textAlign = 'center'
+buttonSubmit.style.fontWeight = '400'
+buttonSubmit.textContent = 'Submit'
+buttonSubmit.type = 'submit'
+
+
+buttonSubmit.addEventListener('submit', event =>{
+  event.preventDefault();
+  console.log(event);
+})
+
+
+showMovies(movies)
+addMovie(myMovies[0])
